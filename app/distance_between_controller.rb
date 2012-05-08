@@ -73,8 +73,8 @@ class DistanceBetweenViewController < UIViewController
     f = CGRectMake 10, (@height += 30), 300, 20
     @second = UILabel.alloc.initWithFrame f
     view.addSubview @second
-    @second.text = "%.4f by %.4f" % [c.latitude, c.longitude]
-    @second.text += " %.2f" %  kilometers(@first.coordinate, newLocation.coordinate).to_s + "Km" if @first
+    @second.text = "#{c.latitude.to_s[0..4]} by #{c.longitude.to_s[0..4]} "
+    @second.text += kilometers(@first.coordinate, newLocation.coordinate).to_s[0..3] + "Km" if @first
 
     @first = newLocation
     @locationManager.stopUpdatingLocation
